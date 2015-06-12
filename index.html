@@ -1,0 +1,73 @@
+<!-- Site built using grunt includes! -->
+<html>
+	<head>
+		<title>TypeScript Module Test</title>
+		
+		<link rel="stylesheet" href="//cdn.kendostatic.com/2015.1.429/styles/kendo.common.min.css">
+	</head>
+	<body>
+		
+	    <!-- MAIN LAYOUT -->
+	    <div data-id="main-layout" data-role="layout">
+	        <div data-role="header">
+	            <div data-role="navbar">
+	                <a data-role="backbutton" data-align="left">Back</a>
+	                <div data-role="view-title"></div>
+	                <a class="needsclick" data-role="button" data-align="right" href="#appHome" data-transition="slide:right">Home</a>
+	            </div>
+	        </div>
+	    </div>
+	    <!-- /MAIN LAYOUT -->
+		
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="//cdn.kendostatic.com/2015.1.429/js/kendo.ui.core.min.js"></script>
+		
+	    <script src="app/app.base.js"></script>
+	    <script src="app/views/about/about.js"></script>
+	    <script src="app/views/home/home.js"></script>
+				
+		<script>
+			new kendo.mobile.Application(document.body, {
+        		transition: 'slide', skin: 'flat', initial: 'home-template'        			
+			});
+		</script>
+	</body>
+	
+	<div data-role="view" id="about-template" data-title="About the Port" data-layout="main-layout" data-model="APP.appAbout.model">
+	    <ul data-role="listview">
+	        <li>Halifax is the closest North American container port with Europe, the Med and Suez Canal</li>
+	        <li>Cargo arrives at Halifax two days quicker than any other east coast port</li>
+	        <li>Imports from SE Asia, the Indian Subcontinent, the Med and North Europe arrive at destination quickly and reliably</li>
+	        <li>Efficient intermodal connections to our key inland markets in Central Canada and the US Midwest has cargo arriving up 5 days faster than via other port gateways</li>
+	        <li>Halifax has two container terminals and a capacity of 2.5 million TEUs</li>
+	        <li>Halifax has the deepest container berths on the entire east coast of North America – we can handle the largest container vessels</li>
+	        <li>Port infrastructure (including cranes, terminal capacity, on-dock rail) means that terminal dwell is among the lowest of all NA ports</li>
+	        <li>Halifax specializes in temperature-controlled cargo with 1,000 on-dock reefer plugs</li>
+	        <li>Halifax features ample transload, distribution and warehouse capacity within 15 minutes of the terminals</li>
+	        <li>Halifax has enjoyed decades of labor stability which makes us a preferred east coast diversion port</li>
+	        <li>Halifax has 18 container lines with regularly-scheduled service, serving over 150 countries worldwide</li>
+	    </ul>
+	</div>
+
+	<div id="home-template" data-role="view" data-title="Halifax Gets it There" data-layout="main-layout"
+	     data-model="app.appHome.model">
+	    <div data-role="header">
+	        <div data-role="navbar">
+	            <span>Halifax Gets It There</span>
+	        </div>
+	    </div>
+	    <div data-role="content">
+	        <ul data-role="listview">
+	            <li>The Port of Halifax</li>
+	            <li>Transit Time Calculator</li>
+	            <li>Route Maps</li>
+	            <li>Ocean Transit Times</li>
+	            <li>Schedule-at-a-Glace</li>
+	            <li>Container Tracking</li>
+	            <li>Service Providers</li>
+	            <li>Daily Status Report</li>
+	        </ul>
+	    </div>
+	</div>
+
+</html>

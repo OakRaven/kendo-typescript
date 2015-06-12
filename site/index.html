@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>TypeScript Module Test</title>		
+		<!-- include: "type": "css", "basePath": "site", "files": "css/**/*.css" -->
+	</head>
+	<body>
+		
+		<!-- LAYOUTS -->
+		include "app/layouts/main.html"
+		<!-- /LAYOUTS -->		
+	    
+		<!-- APPLICATION VIEWS -->
+		include "app/views/home/home.html"
+		include "app/views/about/about.html"
+		include "app/views/routes/routes.html"
+		<!-- /APPLICATION VIEWS -->
+		
+		<!-- THIRD PARTY LIBRARIES -->
+		<!-- include: "type": "js", "files": "js/vendors/**/*.js" -->
+	    <!-- /THIRD PARTY LIBRARIES -->
+		
+		<!-- APPLICATION SCRIPTS -->
+		<!-- include: "type": "js", "files": "js/app.min.js" -->
+		<!-- include: "type": "js", "files": "app/**/*.js" -->
+		<!-- /APPLICATION SCRIPTS -->
+		
+		<!-- BOOT APPLICATION -->
+		<script>
+			app.application.init();
+		</script>
+		<!-- /BOOT APPLICATION -->
+	</body>
+</html>
