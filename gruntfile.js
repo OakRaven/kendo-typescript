@@ -1,15 +1,11 @@
 module.exports = function (grunt) {
-
-  // Project configuration.
   grunt.initConfig({
 
-    // Remove built directory
     clean: {
       prod: ['dist/', 'tmp/'],
       dev: ['dist/js/', 'dist/app/**/*', 'tmp/']
     },
 
-    // Built stylesheets with less
     less: {
       build: {
         src: 'assets/less/*',
@@ -17,7 +13,6 @@ module.exports = function (grunt) {
       }
     },
 
-    // Build the site using grunt-includes
     includes: {
       default: {
         cwd: '',
@@ -115,7 +110,7 @@ module.exports = function (grunt) {
       },
       html: {
         files: ['site/**/*.html'],
-        tasks: ['includes', 'copy:dev', 'includeSource']        
+        tasks: ['includes', 'copy:dev', 'includeSource']
       }
     }
 
@@ -137,5 +132,5 @@ module.exports = function (grunt) {
   // Task definitions
   grunt.registerTask('build-prod', ['clean:prod', 'ts', 'less', 'concat', 'uglify', 'includes', 'copy:prod', 'includeSource', 'cachebreaker:prod']);
   grunt.registerTask('build-dev', ['clean:dev', 'ts', 'less', 'includes', 'copy:dev', 'includeSource']);
-  grunt.registerTask('default', ['build-dev']);goto
+  grunt.registerTask('default', ['build-dev']); goto
 };
