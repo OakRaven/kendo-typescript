@@ -3,7 +3,7 @@
 module app {
 	export module views {
 		let model = kendo.observable({
-			goAbout: function(): void {				alert()
+			goAbout: function(): void {
 				app.application.navigate('#about-view');
 			},
 			goRoutes: function(): void {
