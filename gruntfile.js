@@ -104,6 +104,9 @@ module.exports = function (grunt) {
     },
 
     watch: {
+      options: {
+        livereload: true,
+      },
       typescript: {
         files: ['site/**/*.ts'],
         tasks: ['ts', 'includes', 'copy:dev', 'includeSource']
@@ -111,6 +114,45 @@ module.exports = function (grunt) {
       html: {
         files: ['site/**/*.html'],
         tasks: ['includes', 'copy:dev', 'includeSource']
+      }
+    },
+
+    connect: {
+      dev: {
+        options: {
+          port: 8080,
+          livereload: 35729,
+          hostname: '*',
+          middleware: function (connect) {
+            return [
+              function (request, response, next) {
+                response.setHeader('Access-Control-Allow-Origin', '*');
+                response.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+                response.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+                return next();
+              },
+              connect.static('dist')
+            ];
+          }
+        },
+        livereload: {
+          options: {
+            open: {
+              target: 'http://localhost:8080'
+            },
+            base: [
+              'dist'
+            ]
+          }
+        }
+      }
+
+    },
+
+    open: {
+      dev: {
+        path: 'http://localhost:<%= connect.dev.options.port %>'
       }
     }
 
@@ -122,15 +164,17 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-include-source');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-serve');
   grunt.loadNpmTasks("grunt-ts");
   grunt.loadNpmTasks('grunt-cache-breaker');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-open');
 
   // Task definitions
   grunt.registerTask('build-prod', ['clean:prod', 'ts', 'less', 'concat', 'uglify', 'includes', 'copy:prod', 'includeSource', 'cachebreaker:prod']);
   grunt.registerTask('build-dev', ['clean:dev', 'ts', 'less', 'includes', 'copy:dev', 'includeSource']);
-  grunt.registerTask('default', ['build-dev']); goto
+  grunt.registerTask('serve', ['build-dev', 'connect:dev', 'open:dev', 'watch']);
+  grunt.registerTask('default', ['build-dev']);
 };
