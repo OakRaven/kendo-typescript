@@ -3,7 +3,7 @@
 		<title>TypeScript Module Test</title>		
 		<!-- include: "type": "css", "basePath": "site", "files": "css/**/*.css" -->
 	</head>
-	<body>
+	<body kendo-mobile-application ng-app="demoApp">
 		
 		<!-- LAYOUTS -->
 		include "app/layouts/main.html"
@@ -16,18 +16,19 @@
 		<!-- /APPLICATION VIEWS -->
 		
 		<!-- THIRD PARTY LIBRARIES -->
-		<!-- include: "type": "js", "files": "js/vendors/**/*.js" -->
-	    <!-- /THIRD PARTY LIBRARIES -->
+		<!-- include: "type": "js", "files": [ "js/vendors/jquery.min.js", "js/vendors/angular.js","js/vendors/**/*.js" ] -->
+	  <!-- /THIRD PARTY LIBRARIES -->
+    
+		<!-- DEFINE APPLICATION -->
+		<script>
+			angular.module('demoApp', [ 'kendo.directives' ]);
+		</script>
+		<!-- /DEFINE APPLICATION -->
 		
 		<!-- APPLICATION SCRIPTS -->
 		<!-- include: "type": "js", "files": "js/app.min.js" -->
 		<!-- include: "type": "js", "files": "app/**/*.js" -->
 		<!-- /APPLICATION SCRIPTS -->
-		
-		<!-- BOOT APPLICATION -->
-		<script>
-			app.application.init();
-		</script>
-		<!-- /BOOT APPLICATION -->
+
 	</body>
 </html>

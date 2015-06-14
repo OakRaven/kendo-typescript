@@ -3948,10 +3948,10 @@ interface JQueryXHR {
 interface JQueryEventObject {
 }
 
-interface JQueryPromise<T> {
-    pipe(doneFilter?: (x: any) => any, failFilter?: (x: any) => any, progressFilter?: (x: any) => any): JQueryPromise<T>;
-    then(doneCallbacks: any, failCallbacks: any, progressCallbacks?: any): JQueryPromise<T>;
-}
+// interface JQueryPromise<T> {
+//     pipe(doneFilter?: (x: any) => any, failFilter?: (x: any) => any, progressFilter?: (x: any) => any): JQueryPromise<T>;
+//     then(doneCallbacks: any, failCallbacks: any, progressCallbacks?: any): JQueryPromise<T>;
+// }
 
 interface JQuery {
 

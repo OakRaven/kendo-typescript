@@ -1,18 +1,24 @@
 /// <reference path="../../app.ts"/>
+/// <reference path="../../../../typings/angularjs/angular"/>
 
-module app {
-	export module views {
-		let model = kendo.observable({
-			goAbout: function(): void {
-				app.application.navigate('#about-view');
-			},
-			goRoutes: function(): void {
-				app.application.navigate('#routes-view');
-			}
-		});
+angular.module('demoApp')
+  .controller('homeController', ['$scope', function($scope){
+    
+  }])
 
-		let events = {};
+// module app {
+// 	export module views {
+// 		let model = kendo.observable({
+// 			goAbout: function(): void {
+// 				app.application.navigate('#about-view');
+// 			},
+// 			goRoutes: function(): void {
+// 				app.application.navigate('#routes-view');
+// 			}
+// 		});
 
-		application.registerView("home", model, events);
-	}
-}
+// 		let events = {};
+
+// 		application.registerView("home", model, events);
+// 	}
+// }
